@@ -1,6 +1,15 @@
 """
-
+Basic hash func
 """
+def my_hashing_func(str, table_size):
+    bytes_representation = str.encode()
+
+    sum = 0
+    for byte in bytes_representation:
+        sum += byte
+
+    return sum % table_size
+
 class HashTable: #basic hash template code
 
     def __init__(self, capacity):
