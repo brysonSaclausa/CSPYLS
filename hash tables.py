@@ -141,7 +141,19 @@ class HashTable:
         Hash collisions should be handled with Linked List Chaining.
         Implement this.
         """
-        # Your code here
+        index = self.hash_index(key)
+
+        current_entry = self.storage[index]
+
+        while current_entry is not None and current_entry != key:
+           current_entry = current_entry.next
+
+        if current_entry is not None:
+            current_entry.value = value
+        else:
+            new_entry = HashTableEntry(key, value)
+            new_entry.next = self = self,storage[index]
+            self.storage[index] = new_entry
 
     def delete(self, key):
         """
